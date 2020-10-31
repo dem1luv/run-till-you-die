@@ -14,6 +14,30 @@ TextureImporter:
   - first:
       213: 8553092956536608252
     second: block
+  - first:
+      213: -8016180380217801881
+    second: sprites_0
+  - first:
+      213: 6293352061699217435
+    second: sprites_1
+  - first:
+      213: -6225363518392646231
+    second: sprites_2
+  - first:
+      213: 6359989545900041975
+    second: sprites_3
+  - first:
+      213: 6128299156075563123
+    second: sprites_0
+  - first:
+      213: 3386662938922423588
+    second: sprites_1
+  - first:
+      213: -6110656803992641779
+    second: sprites_2
+  - first:
+      213: 8553092956536608252
+    second: sprites_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -123,7 +147,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player
+      name: sprites_0
       rect:
         serializedVersion: 2
         x: 17
@@ -131,7 +155,7 @@ TextureImporter:
         width: 145
         height: 144
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -144,7 +168,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spike
+      name: sprites_1
       rect:
         serializedVersion: 2
         x: 190
@@ -152,7 +176,7 @@ TextureImporter:
         width: 167
         height: 144
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,7 +189,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crystal
+      name: sprites_2
       rect:
         serializedVersion: 2
         x: 386
@@ -173,7 +197,7 @@ TextureImporter:
         width: 91
         height: 144
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,7 +210,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: block
+      name: sprites_3
       rect:
         serializedVersion: 2
         x: 513
@@ -194,7 +218,7 @@ TextureImporter:
         width: 144
         height: 144
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
