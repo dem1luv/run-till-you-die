@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
 		{
-			transform.Translate(Vector2.right * movingSpeed * Time.deltaTime);
+			Vector2 direction = GameManager.playerDirection * movingSpeed * Time.deltaTime;
+			transform.Translate(direction);
 		}
     }
 }

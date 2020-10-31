@@ -9,6 +9,7 @@ public class GravityTrigger : MonoBehaviour
 		if (collision.tag == "Player")
 		{
 			Physics2D.gravity = new Vector2(-9.81f, 0);
+			GameManager.playerDirection = Vector2.down;
 		}
 	}
 }
