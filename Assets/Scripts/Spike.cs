@@ -8,7 +8,6 @@ public class Spike : MonoBehaviour
 	[SerializeField] float upDelay = 4f;
 	[SerializeField] float downDelay = 4f;
 	
-
 	void Start()
 	{
 		StartCoroutine("Move");

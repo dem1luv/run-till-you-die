@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9095078729880438580}
   - component: {fileID: 9095078729880438581}
-  - component: {fileID: 9095078729880438578}
   - component: {fileID: 1334428646}
   - component: {fileID: 1334428643}
+  - component: {fileID: 9095078729880438578}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -85,18 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9095078729880438578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9095078729880438579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf9063d1666e0b04ab80e09bf4dc6ed6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1334428646
 Rigidbody2D:
   serializedVersion: 4
@@ -134,3 +122,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.725
+--- !u!114 &9095078729880438578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9095078729880438579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf9063d1666e0b04ab80e09bf4dc6ed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingSpeed: 1
