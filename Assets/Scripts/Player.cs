@@ -17,8 +17,8 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	public void ChangeDirection(Vector2 direction)
+	public void UpdateDirection(Vector2 newDirection)
 	{
-		playerDirection = direction;
+		playerDirection = newDirection;
 	}
 }

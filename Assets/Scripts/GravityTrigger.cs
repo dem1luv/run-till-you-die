@@ -12,7 +12,7 @@ public class GravityTrigger : MonoBehaviour
 		if (collision.tag == "Player")
 		{
 			Physics2D.gravity = gravityDirection * 9.81f;
-			GameManager.playerDirection = playerDirection;				
+			collision.GetComponent<Player>().UpdateDirection(playerDirection);				
 		}
 	}
 }
