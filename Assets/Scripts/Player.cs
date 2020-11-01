@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-	[SerializeField] float movingSpeed = 1f;
-	[SerializeField] GameObject mainCamera;
+	[SerializeField] float movingSpeed = 4f;
+	[SerializeField] float rotatingSpeed = 2f;
+	[SerializeField] Animator cameraAnimator;
+	[SerializeField] SpriteRenderer playerSprite;
 
 	Vector2 playerDirection = Vector2.right;
-	Animator cameraAnimator;
-
-	private void Start()
-	{
-		cameraAnimator = mainCamera.GetComponent<Animator>();
-	}
 
 	void Update()
 	{
@@ -21,6 +17,7 @@ public class Player : MonoBehaviour
 		{
 			Vector2 direction = playerDirection * movingSpeed * Time.deltaTime;
 			transform.Translate(direction);
+			playerSprite.transform.Rotate(new Vector3(0, 0, -rotatingSpeed));
 		}
 	}
 
