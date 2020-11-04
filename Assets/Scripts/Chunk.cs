@@ -11,34 +11,16 @@ public class Chunk : MonoBehaviour
 
 	public void Generate()
 	{
-		switch (Random.Range(0, 3))
-		{
-			case 0:
-				gravityDirection = Vector2.up;
-				//transform.Rotate(new Vector3(0, 0, 180f));
-				break;
-			case 1:
-				gravityDirection = Vector2.right;
-				//transform.Rotate(new Vector3(0, 0, 90f));
-				break;
-			case 2:
-				gravityDirection = Vector2.down;
-				break;
-			case 3:
-				gravityDirection = Vector2.left;
-				//transform.Rotate(new Vector3(0, 0, -90f));
-				break;
-		}
 		blockObject.GetComponent<Block>().Generate();
 	}
 
-	public int GetBlockLength()
+	public float GetBlockLength()
 	{
-		return blockObject.GetComponent<Block>().length;
+		return blockObject.GetComponent<Block>().convertedLength;
 	}
 	
-	public int GetBlockHeight()
+	public float GetBlockHeight()
 	{
-		return blockObject.GetComponent<Block>().height;
+		return blockObject.GetComponent<Block>().convertedHeight;
 	}
 }
