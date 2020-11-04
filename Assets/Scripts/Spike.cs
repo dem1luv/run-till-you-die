@@ -18,11 +18,11 @@ public class Spike : MonoBehaviour
 		yield return new WaitForSeconds(startDelay);
 		while (true)
 		{
-			transform.Translate(new Vector2(0, -1.44f));
+			transform.Translate(new Vector2(0, -1.42f));
 
 			yield return new WaitForSeconds(upDelay);
 
-			transform.Translate(new Vector2(0, 1.44f));
+			transform.Translate(new Vector2(0, 1.42f));
 
 			yield return new WaitForSeconds(downDelay);
 		}

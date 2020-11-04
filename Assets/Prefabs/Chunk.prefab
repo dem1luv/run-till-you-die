@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityDirection: {x: 0, y: 0}
   blockObject: {fileID: 8613787009621517692}
+  spikePrefab: {fileID: 7028048114756471454, guid: 2c75e3d5ee969f5478bdb7b7da081f84,
+    type: 3}
 --- !u!1001 &2003536227824724531
 PrefabInstance:
   m_ObjectHideFlags: 0
