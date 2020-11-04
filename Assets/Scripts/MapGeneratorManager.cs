@@ -39,7 +39,6 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.x += blockHeight / 2f;
 					instancePosition.y += (chunk.GetBlockLength() - blockHeight) / 2f;
 
-					lastBlockLength = chunk.GetBlockLength();
 					chunk.transform.Rotate(new Vector3(0, 0, 90f));
 				}
 				else if (randomInt == 1)
@@ -50,7 +49,6 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.x += blockHeight / 2f;
 					instancePosition.y -= (chunk.GetBlockLength() - blockHeight) / 2f;
 
-					lastBlockLength = chunk.GetBlockLength();
 					chunk.transform.Rotate(new Vector3(0, 0, -90f));
 				}
 				else if (randomInt == 2)
@@ -59,8 +57,6 @@ public class MapGeneratorManager : MonoBehaviour
 
 					instancePosition.x += lastBlockLength / 2f;
 					instancePosition.x += chunk.GetBlockLength() / 2f;
-					
-					lastBlockLength = chunk.GetBlockLength();
 				}
 			}
 			else if (lastGravityDirection == Vector2.right)
@@ -72,7 +68,6 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.y += lastBlockLength / 2f;
 					instancePosition.y += chunk.GetBlockLength() / 2f;
 
-					lastBlockLength = chunk.GetBlockLength();
 					chunk.transform.Rotate(new Vector3(0, 0, 90f));
 				}
 				else if (randomInt == 1)
@@ -84,7 +79,6 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.y += blockHeight / 2f;
 					instancePosition.y += lastBlockLength / 2f;
 
-					lastBlockLength = chunk.GetBlockLength();
 					chunk.transform.Rotate(new Vector3(0, 0, 180f));
 				}
 				else if (randomInt == 2)
@@ -95,8 +89,6 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.x += chunk.GetBlockLength() / 2f;
 					instancePosition.y += blockHeight / 2f;
 					instancePosition.y += lastBlockLength / 2f;
-
-					lastBlockLength = chunk.GetBlockLength();
 				}
 			}
 			else if (lastGravityDirection == Vector2.left)
@@ -108,7 +100,6 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.y -= lastBlockLength / 2f;
 					instancePosition.y -= chunk.GetBlockLength() / 2f;
 
-					lastBlockLength = chunk.GetBlockLength();
 					chunk.transform.Rotate(new Vector3(0, 0, -90f));
 				}
 				else if (randomInt == 1)
@@ -120,7 +111,6 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.y -= lastBlockLength / 2f;
 					instancePosition.y -= blockHeight / 2f;
 
-					lastBlockLength = chunk.GetBlockLength();
 					chunk.transform.Rotate(new Vector3(0, 0, 180f));
 				}
 				else if (randomInt == 2)
@@ -131,8 +121,6 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.x += chunk.GetBlockLength() / 2f;
 					instancePosition.y -= lastBlockLength / 2f;
 					instancePosition.y -= blockHeight / 2f;
-
-					lastBlockLength = chunk.GetBlockLength();
 				}
 			}
 			else if (lastGravityDirection == Vector2.up)
@@ -145,7 +133,6 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.x -= blockHeight / 2f;
 					instancePosition.y -= (chunk.GetBlockLength() - blockHeight) / 2f;
 
-					lastBlockLength = chunk.GetBlockLength();
 					chunk.transform.Rotate(new Vector3(0, 0, -90f));
 				}
 				else if (randomInt == 1)
@@ -155,7 +142,6 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.x -= lastBlockLength / 2f;
 					instancePosition.x -= chunk.GetBlockLength() / 2f;
 
-					lastBlockLength = chunk.GetBlockLength();
 					chunk.transform.Rotate(new Vector3(0, 0, 180f));
 				}
 				else if (randomInt == 2)
@@ -166,16 +152,16 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.x -= blockHeight / 2f;
 					instancePosition.y += (chunk.GetBlockLength() - blockHeight) / 2f;
 
-					lastBlockLength = chunk.GetBlockLength();
 					chunk.transform.Rotate(new Vector3(0, 0, 90f));
 				}
 			}
 
+			lastBlockLength = chunk.GetBlockLength();
 			chunk.gravityDirection = lastGravityDirection;
 			
 			chunkObject.transform.position = instancePosition;
 
-			yield return new WaitForSeconds(0.02f);
+			yield return new WaitForEndOfFrame();
 		}
 	}
 }
