@@ -5,6 +5,7 @@ using UnityEngine;
 public class MapGeneratorManager : MonoBehaviour
 {
     [SerializeField] GameObject chunkPrefab;
+	[SerializeField] GameObject gravityTriggerPrefab;
 
 	Vector2 instancePosition = Vector2.zero;
 	Vector2 lastGravityDirection = Vector2.right;
@@ -39,6 +40,13 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.x += lastBlockLength / 2f;
 					instancePosition.x += blockHeight / 2f;
 					instancePosition.y += (chunk.GetBlockLength() - blockHeight) / 2f;
+
+					Vector2 gravityTriggerPos = Vector2.zero;
+					gravityTriggerPos.x -= chunk.GetBlockLength() / 2f;
+					gravityTriggerPos.x += Utils.ConvertBlockScaleToPosition(gravityTriggerPrefab.transform.localScale.y) / 2f;
+					gravityTriggerPos.y += blockHeight * 1.5f;
+					GameObject gravityTrigger = Instantiate(gravityTriggerPrefab, chunk.transform);
+					gravityTrigger.transform.position = gravityTriggerPos;
 
 					chunk.transform.Rotate(new Vector3(0, 0, 90f));
 				}
