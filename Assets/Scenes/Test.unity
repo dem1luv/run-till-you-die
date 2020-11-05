@@ -2533,53 +2533,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 149752726}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2023716343
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2023716344}
-  - component: {fileID: 2023716345}
-  m_Layer: 0
-  m_Name: MapGeneratorManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2023716344
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023716343}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2023716345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023716343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc768c4f2d46a6a4b803988fb043df63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chunkPrefab: {fileID: 2003536228179729145, guid: 7791cbd392217874687cb7d5b861b5fe,
-    type: 3}
-  gravityTriggerPrefab: {fileID: 4467716155112558880, guid: f91f5c0d1599615488d89d3a003fabce,
-    type: 3}
 --- !u!4 &2028456281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4467716155112558887, guid: f91f5c0d1599615488d89d3a003fabce,

@@ -222,6 +222,11 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 55
       objectReference: {fileID: 0}
+    - target: {fileID: 9095078729880438578, guid: 67cfcbda0c3cceb4ea15440c2bc7c216,
+        type: 3}
+      propertyPath: rotatingSpeed
+      value: 2.3
+      objectReference: {fileID: 0}
     - target: {fileID: 9095078729880438579, guid: 67cfcbda0c3cceb4ea15440c2bc7c216,
         type: 3}
       propertyPath: m_Name

@@ -270,6 +270,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingSpeed: 4
-  rotatingSpeed: 2
+  rotatingSpeed: 2.2
   cameraAnimator: {fileID: 519420030}
   playerSprite: {fileID: 9112285217641132584}
