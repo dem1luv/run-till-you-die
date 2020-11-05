@@ -63,7 +63,6 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.x += blockHeight / 2f;
 					instancePosition.y += (chunk.GetBlockLength() - blockHeight) / 2f;
 
-					gt.gravityDirection = Vector2.right;
 					gt.playerDirection = Vector2.up;
 
 					chunk.transform.Rotate(new Vector3(0, 0, 90f));
@@ -76,7 +75,6 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.x += blockHeight / 2f;
 					instancePosition.y -= (chunk.GetBlockLength() - blockHeight) / 2f;
 
-					gt.gravityDirection = Vector2.left;
 					gt.playerDirection = Vector2.down;
 
 					chunk.transform.Rotate(new Vector3(0, 0, -90f));
@@ -93,7 +91,6 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.y += blockHeight / 2f;
 					instancePosition.y += lastBlockLength / 2f;
 
-					gt.gravityDirection = Vector2.up;
 					gt.playerDirection = Vector2.left;
 
 					chunk.transform.Rotate(new Vector3(0, 0, 180f));
@@ -107,7 +104,6 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.y += blockHeight / 2f;
 					instancePosition.y += lastBlockLength / 2f;
 
-					gt.gravityDirection = Vector2.down;
 					gt.playerDirection = Vector2.right;
 				}
 			}
@@ -122,7 +118,6 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.y -= lastBlockLength / 2f;
 					instancePosition.y -= blockHeight / 2f;
 
-					gt.gravityDirection = Vector2.down;
 					gt.playerDirection = Vector2.right;
 				}
 				else
@@ -134,7 +129,6 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.y -= lastBlockLength / 2f;
 					instancePosition.y -= blockHeight / 2f;
 
-					gt.gravityDirection = Vector2.up;
 					gt.playerDirection = Vector2.left;
 
 					chunk.transform.Rotate(new Vector3(0, 0, 180f));
@@ -150,7 +144,6 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.x -= blockHeight / 2f;
 					instancePosition.y -= (chunk.GetBlockLength() - blockHeight) / 2f;
 
-					gt.gravityDirection = Vector2.left;
 					gt.playerDirection = Vector2.down;
 
 					chunk.transform.Rotate(new Vector3(0, 0, -90f));
@@ -163,12 +156,13 @@ public class MapGeneratorManager : MonoBehaviour
 					instancePosition.x -= blockHeight / 2f;
 					instancePosition.y += (chunk.GetBlockLength() - blockHeight) / 2f;
 
-					gt.gravityDirection = Vector2.right;
 					gt.playerDirection = Vector2.up;
 
 					chunk.transform.Rotate(new Vector3(0, 0, 90f));
 				}
 			}
+
+			gt.gravityDirection = lastGravityDirection;
 
 			lastBlockLength = chunk.GetBlockLength();
 			chunk.gravityDirection = lastGravityDirection;
