@@ -43,7 +43,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 0}
+  m_BackGroundColor: {r: 0.70980394, g: 1, b: 1, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -64,7 +64,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -175,7 +175,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -8016180380217801881, guid: 4b6cedca165d9eb42ab0bd64a472fd5e,
     type: 3}
-  m_Color: {r: 0, g: 0.615921, b: 1, a: 1}
+  m_Color: {r: 0.5137255, g: 0.28627452, b: 0.8705883, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -254,9 +254,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.003, y: -0.0005}
   serializedVersion: 2
-  m_Radius: 0.725
+  m_Radius: 0.721
 --- !u!114 &9095078729880438578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +270,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingSpeed: 4
-  rotatingSpeed: 2.2
+  rotatingSpeed: 2.3
   cameraAnimator: {fileID: 519420030}
   playerSprite: {fileID: 9112285217641132584}
