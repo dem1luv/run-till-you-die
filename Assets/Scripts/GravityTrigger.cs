@@ -15,6 +15,7 @@ public class GravityTrigger : MonoBehaviour
 			Physics2D.gravity = gravityDirection * 9.81f;
 			collision.GetComponent<Player>().UpdateDirection(playerDirection);
 			mapGeneratorManager.DeleteFirstChunkInList();
+			Destroy(gameObject);
 		}
 	}
 }
