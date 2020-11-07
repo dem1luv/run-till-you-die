@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-	[SerializeField] float startDelay = 1f;
-	[SerializeField] float upDelay = 4f;
-	[SerializeField] float downDelay = 4f;
-	[Space]
 	[SerializeField] Animator spikeAlarmAnimator;
+
+	float startDelay;
+	float upDelay;
+	float downDelay;
 	
 	void Start()
 	{
 		StartCoroutine("Move");
+
+		startDelay = Random.Range(1f, 3f);
+		upDelay = Random.Range(2f, 5f);
+		downDelay = Random.Range(1f, 2f);
 	}
 
 	IEnumerator Move()
