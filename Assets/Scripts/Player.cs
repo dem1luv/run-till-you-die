@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 	[SerializeField] float movingSpeed = 4f;
-	[SerializeField] float rotatingSpeed = 2f;
 	[SerializeField] Animator cameraAnimator;
 	[SerializeField] SpriteRenderer playerSprite;
 
@@ -17,7 +16,7 @@ public class Player : MonoBehaviour
 		{
 			Vector2 direction = playerDirection * movingSpeed * Time.deltaTime;
 			transform.Translate(direction);
-			playerSprite.transform.Rotate(new Vector3(0, 0, -rotatingSpeed));
+			playerSprite.transform.Rotate(new Vector3(0, 0, -movingSpeed * Time.deltaTime * 100)); //idk how does it work but it does, so i won't touch it
 		}
 	}
 
