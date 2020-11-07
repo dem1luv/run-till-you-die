@@ -19,14 +19,17 @@ public class Chunk : MonoBehaviour
 		float minObjectX = transform.position.x - GetBlockLength() / 2f + GetBlockHeight() * 3f;
 		float maxObjectX = transform.position.x + GetBlockLength() / 2f - GetBlockHeight() * 2.4f;
 		float step = 1.65f;
+		int spikesTogether = 0;
 		while (maxObjectX >= minObjectX)
 		{
 			int randInt = Random.Range(0, 2);
-			if (randInt == 0) // 50%
+			if (randInt == 0 && spikesTogether < 5) // 50%
 			{
+				spikesTogether++;
 				minObjectX += step;
 				minObjectX = Random.Range(minObjectX, maxObjectX);
 			}
+			spikesTogether = 0;
 			spikePos.x = minObjectX;
 			minObjectX += step;
 			Instantiate(spikePrefab, spikePos, Quaternion.identity, transform);
