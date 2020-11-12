@@ -10,13 +10,22 @@ public class Spike : MonoBehaviour
 	float upDelay;
 	float downDelay;
 	
-	void Start()
+	public void Generate(float startDelay, float upDelay, float downDelay)
 	{
-		StartCoroutine("Move");
+		this.startDelay = startDelay;
+		this.upDelay = upDelay;
+		this.downDelay = downDelay;
 
+		StartCoroutine("Move");
+	}
+
+	public void GenerateRandom()
+	{
 		startDelay = Random.Range(1f, 3f);
 		upDelay = Random.Range(2f, 5f);
 		downDelay = Random.Range(1f, 2f);
+
+		StartCoroutine("Move");
 	}
 
 	IEnumerator Move()
