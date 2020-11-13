@@ -8,4 +8,8 @@ public class Utils : MonoBehaviour
 	{
 		return length / 100f;
 	}
+	static public float ConvertPositionToBlockScale(float length)
+	{
+		return length * 100f;
+	}
 }
