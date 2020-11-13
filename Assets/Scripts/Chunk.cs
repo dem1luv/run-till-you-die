@@ -23,13 +23,14 @@ public class Chunk : MonoBehaviour
 		float startDelay = 0;
 		float upDelay = 0;
 		float downDelay = 0;
-		while (maxObjectX >= minObjectX)
+		while (true)
 		{
 			int randInt = Random.Range(0, 2);
 			if (randInt == 0 && spikesTogether < 5) // 50%
 			{
+				if (spikesTogether == 0)
+					minObjectX += step;
 				spikesTogether++;
-				minObjectX += step;
 			}
 			else
 			{
@@ -37,6 +38,8 @@ public class Chunk : MonoBehaviour
 				minObjectX = Random.Range(minObjectX + step, maxObjectX);
 			}
 			minObjectX += step;
+			if (minObjectX >= maxObjectX)
+				break;
 			spikePos.x = minObjectX;
 			GameObject spikeObj = Instantiate(spikePrefab, spikePos, Quaternion.identity, transform);
 			Spike spike = spikeObj.GetComponent<Spike>();
