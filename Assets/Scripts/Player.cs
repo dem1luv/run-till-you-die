@@ -9,13 +9,23 @@ public class Player : MonoBehaviour
 	[SerializeField] SpriteRenderer playerSprite;
 
 	Vector2 playerDirection = Vector2.right;
+	Rigidbody2D rb;
+	bool isGrounded = true;
+
+	void Start()
+	{
+		rb = GetComponent<Rigidbody2D>();
+	}
 
 	void Update()
 	{
 		if (Input.GetMouseButton(0))
 		{
-			Vector2 direction = playerDirection * movingSpeed * Time.deltaTime;
-			transform.Translate(direction);
+			if (isGrounded)
+			{
+				Vector2 direction = playerDirection * movingSpeed * Time.deltaTime;
+				transform.Translate(direction);
+			}
 			playerSprite.transform.Rotate(new Vector3(0, 0, -movingSpeed * Time.deltaTime * 100)); //idk how does it work but it does, so i won't touch it
 		}
 	}
@@ -31,5 +41,13 @@ public class Player : MonoBehaviour
 			cameraAnimator.SetInteger("state", 2);
 		else
 			cameraAnimator.SetInteger("state", 3);
+		StartCoroutine("TempBanPlayerMoving");
+	}
+
+	IEnumerator TempBanPlayerMoving()
+	{
+		isGrounded = false;
+		yield return new WaitForSeconds(0.3481927f);
+		isGrounded = true;
 	}
 }
