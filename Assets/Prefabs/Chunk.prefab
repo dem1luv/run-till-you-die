@@ -48,9 +48,9 @@ MonoBehaviour:
   blockObject: {fileID: 8613787009621517692}
   spikePrefab: {fileID: 7028048114756471454, guid: 2c75e3d5ee969f5478bdb7b7da081f84,
     type: 3}
-  smallSpikePlatformPrefab: {fileID: 3235714449416457236, guid: 70cb1e2cfda222449a1c38a2b119f6d5,
+  thornPlatformPref: {fileID: 3235714449416457236, guid: 70cb1e2cfda222449a1c38a2b119f6d5,
     type: 3}
-  smallSpikePrefab: {fileID: 49442713330088784, guid: b1371d1d7d920444faa980b9430e76a2,
+  thornPref: {fileID: 643782317139896653, guid: b1371d1d7d920444faa980b9430e76a2,
     type: 3}
 --- !u!1001 &2003536227824724531
 PrefabInstance:

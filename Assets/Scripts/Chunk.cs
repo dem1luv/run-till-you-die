@@ -8,72 +8,95 @@ public class Chunk : MonoBehaviour
 	[Space]
 	public GameObject blockObject;
 	[Space]
-	[SerializeField] GameObject spikePrefab;
-	[SerializeField] GameObject smallSpikePlatformPrefab;
-	[SerializeField] GameObject smallSpikePrefab;
+	[SerializeField] GameObject spikePref;
+	[SerializeField] GameObject thornPlatformPref;
+	[SerializeField] GameObject thornPref;
 
 
 	public void Generate()
 	{
 		blockObject.GetComponent<Block>().Generate();
+		
 		Vector2 spikePos = transform.position;
 		spikePos.y += GetBlockHeight() / 2f + 1.42f / 2f;
+		
 		float minObjectX = transform.position.x - GetBlockLength() / 2f + GetBlockHeight() * 3f;
 		float maxObjectX = transform.position.x + GetBlockLength() / 2f - GetBlockHeight() * 2.4f;
-		float step = 1.65f;
-		float smallStep = 1.65f * 0.25f;
-		int spikesTogether = 0;
+
+		float spikeWidth = 1.65f;
+		float thornWidth = 1.65f * 0.25f;
+		
+		// marker variables
+		int groupedSpikesCount = 0;
 		float startDelay = 0;
 		float upDelay = 0;
 		float downDelay = 0;
-		int randInt;
 		float lastSpikeX = 0;
+
+		// generation cycle
 		while (true)
 		{
-			minObjectX += step;
-			randInt = Random.Range(0, 2);
-			if (randInt == 0 && spikesTogether < 5) // 50%
+			minObjectX += spikeWidth;
+
+			// chance 50% that a current spike will be grouped
+			if (Random.Range(0, 2) == 0 && groupedSpikesCount < 5)
 			{
-				if (spikesTogether == 0)
-					minObjectX += step;
-				spikesTogether++;
+				// front intend if it's the first grouped spike
+				if (groupedSpikesCount == 0)
+					minObjectX += spikeWidth;
+
+				// increase the grouped spikes count marker
+				groupedSpikesCount++;
 			}
+			// else, the current spike is a single
 			else
 			{
-				randInt = Random.Range(0, 2);
-				if (randInt == 0 & spikesTogether > 1) // 50% (25%)
+				// if it was some groupedSpikes, it can spawn a thorn platform with 12.5% (because there should be at least 2 grouped spikes)
+				if (Random.Range(0, 2) == 0 & groupedSpikesCount > 1)
 				{
-					float smallSpikePlatformX = lastSpikeX;
-					smallSpikePlatformX -= (spikesTogether - 1) / 2f * step;
-					float smallSpikePlatformY = Random.Range(4f, 6f);
-					Vector2 smallSpikePlatformPos = new Vector2(smallSpikePlatformX, smallSpikePlatformY);
-					GameObject smallSpikePlatform = Instantiate(smallSpikePlatformPrefab, Vector2.zero, Quaternion.identity, transform);
-					smallSpikePlatform.transform.localPosition = smallSpikePlatformPos;
-					Vector2 smallSpikePlatformLocalScale = new Vector2();
-					smallSpikePlatformLocalScale.x = Utils.ConvertPositionToBlockScale(step * spikesTogether + step * 2);
-					smallSpikePlatformLocalScale.y = smallSpikePlatform.transform.localScale.y;
-					smallSpikePlatform.transform.localScale = smallSpikePlatformLocalScale;
-					float x = smallSpikePlatformPos.x;
-					x -= Utils.ConvertBlockScaleToPosition(smallSpikePlatformLocalScale.x) / 2f;
-					x += smallStep / 2f;
-					float y = smallSpikePlatformPos.y - 0.554f;
-					for(int i = 0; i < spikesTogether * 4 + 8; i++)
+					float thornPlatformPosX = lastSpikeX;
+					thornPlatformPosX -= (groupedSpikesCount - 1) / 2f * spikeWidth;
+					float thornPlatformPosY = Random.Range(4f, 6f);
+					Vector2 thornPlatformPos = new Vector2(thornPlatformPosX, thornPlatformPosY);
+
+					GameObject thornPlatformObj = Instantiate(thornPlatformPref, Vector2.zero, Quaternion.identity, transform);
+					thornPlatformObj.transform.localPosition = thornPlatformPos;
+
+					Vector2 thornPlatformLS = new Vector2();
+					thornPlatformLS.x = Utils.ConvertPositionToBlockScale(spikeWidth * groupedSpikesCount + spikeWidth * 2);
+					thornPlatformLS.y = thornPlatformObj.transform.localScale.y;
+					
+					thornPlatformObj.transform.localScale = thornPlatformLS;
+
+					float x = thornPlatformPos.x;
+					x -= Utils.ConvertBlockScaleToPosition(thornPlatformLS.x) / 2f;
+					x += thornWidth / 2f;
+					float y = thornPlatformPos.y - 0.554f;
+
+					for(int i = 0; i < groupedSpikesCount * 4 + 8; i++)
 					{
-						GameObject smallSpikeObj = Instantiate(smallSpikePrefab, Vector2.zero, Quaternion.identity, transform);
-						smallSpikeObj.transform.localPosition = new Vector2(x, y);
-						x += smallStep;
+						GameObject thornObj = Instantiate(thornPref, Vector2.zero, Quaternion.identity, transform);
+						thornObj.transform.localPosition = new Vector2(x, y);
+
+						x += thornWidth;
 					}
 				}
-				spikesTogether = 0;
-				minObjectX = Random.Range(minObjectX + step, maxObjectX);
+				groupedSpikesCount = 0;
+
+				minObjectX = Random.Range(minObjectX + spikeWidth, maxObjectX);
 			}
+
 			if (minObjectX >= maxObjectX)
 				break;
+
 			spikePos.x = minObjectX;
-			GameObject spikeObj = Instantiate(spikePrefab, spikePos, Quaternion.identity, transform);
+
+			GameObject spikeObj = Instantiate(spikePref, spikePos, Quaternion.identity, transform);
+			
 			lastSpikeX = spikeObj.transform.localPosition.x;
+			
 			Spike spike = spikeObj.GetComponent<Spike>();
-			if (spikesTogether > 0)
+			if (groupedSpikesCount > 0)
 			{
 				if (startDelay == 0)
 				{

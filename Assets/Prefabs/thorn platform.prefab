@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3235714449416457238}
   - component: {fileID: 3235714449416457239}
   m_Layer: 0
-  m_Name: small spike platform
+  m_Name: thorn platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
