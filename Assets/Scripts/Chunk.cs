@@ -19,7 +19,7 @@ public class Chunk : MonoBehaviour
 		
 		// set default spike positions (without xpos for now)
 		Vector2 spikePos = transform.position;
-		spikePos.y += GetBlockHeight() / 2f + 1.42f / 2f;
+		spikePos.y += GetBlockHeight() / 2f + 1.34f / 2f;
 		
 		float minObjectX = transform.position.x - GetBlockLength() / 2f + GetBlockHeight() * 3f;
 		float maxObjectX = transform.position.x + GetBlockLength() / 2f - GetBlockHeight() * 2.4f;
@@ -78,7 +78,7 @@ public class Chunk : MonoBehaviour
 					thornPosX -= Utils.ConvertBlockScaleToPosition(thornPlatformLS.x) / 2f;
 					thornPosX += thornWidth / 2f;
 					// set ypos for all thorns
-					float thornPosY = thornPlatformPos.y - 0.554f;
+					float thornPosY = thornPlatformPos.y - 0.543f;
 
 					for(int i = 0; i < groupedSpikesCount * 4 + 8; i++) // 1 spike = 4 thorn and 8 additionals (by 4 for left and right sides)
 					{

@@ -33,7 +33,7 @@ public class Spike : MonoBehaviour
 		yield return new WaitForSeconds(startDelay);
 		while (true)
 		{
-			transform.Translate(new Vector2(0, -1.46f));
+			transform.Translate(new Vector2(0, -1.435f));
 
 			yield return new WaitForSeconds(upDelay - 2f);
 			
@@ -42,7 +42,7 @@ public class Spike : MonoBehaviour
 			spikeAlarmAnimator.SetInteger("state", 0);
 			yield return new WaitForSeconds(1f);
 
-			transform.Translate(new Vector2(0, 1.46f));
+			transform.Translate(new Vector2(0, 1.435f));
 
 			yield return new WaitForSeconds(downDelay);
 		}

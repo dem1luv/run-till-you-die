@@ -164,10 +164,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3856610397017494050}
   - component: {fileID: 3856610397017494051}
-  - component: {fileID: 6056719447064579296}
   - component: {fileID: 3856610397017494058}
   - component: {fileID: 3856610397017494052}
   - component: {fileID: 1276361897557412717}
+  - component: {fileID: 7296449890873734687}
   m_Layer: 0
   m_Name: thorn
   m_TagString: Untagged
@@ -240,34 +240,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &6056719447064579296
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3856610397017494053}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.67, y: 1.44}
-    newSize: {x: 1.67, y: 1.44}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.835, y: -0.72}
-      - {x: -0.835, y: -0.72}
-      - {x: 0, y: 0.72}
 --- !u!50 &3856610397017494058
 Rigidbody2D:
   serializedVersion: 4
@@ -313,3 +285,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49581218c303c242902102ae7c6c1dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!68 &7296449890873734687
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3856610397017494053}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.7745, y: -0.567}
+  - {x: -0.078, y: 0.64}
+  - {x: -0.055, y: 0.665}
+  - {x: -0.03, y: 0.67995}
+  - {x: 0.03, y: 0.67995}
+  - {x: 0.055, y: 0.665}
+  - {x: 0.078, y: 0.64}
+  - {x: 0.7745, y: -0.567}
