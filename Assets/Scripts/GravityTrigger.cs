@@ -6,6 +6,7 @@ public class GravityTrigger : MonoBehaviour
 {
 	public Vector2 gravityDirection;
 	public Vector2 playerDirection;
+	public Vector2 playerVelocity;
 	public MapGeneratorManager mapGeneratorManager;
 
 	private void OnTriggerEnter2D(Collider2D collision)

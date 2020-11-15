@@ -56,7 +56,9 @@ public class Player : MonoBehaviour
 	IEnumerator TempBanPlayerMoving()
 	{
 		isGrounded = false;
+		rb.velocity = Physics2D.gravity / 9.81f * 3;
 		yield return new WaitForSeconds(0.3481927f);
+		rb.velocity = Vector2.zero;
 		isGrounded = true;
 	}
 }
