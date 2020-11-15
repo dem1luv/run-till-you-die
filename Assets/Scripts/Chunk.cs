@@ -24,6 +24,8 @@ public class Chunk : MonoBehaviour
 		float minObjectX = transform.position.x - GetBlockLength() / 2f + GetBlockHeight() * 3f;
 		float maxObjectX = transform.position.x + GetBlockLength() / 2f - GetBlockHeight() * 2.4f;
 
+		float maxObjectGap = 10f;
+
 		float spikeWidth = 1.65f;
 		float thornWidth = 1.65f * 0.25f;
 		
@@ -42,9 +44,9 @@ public class Chunk : MonoBehaviour
 			// chance 50% that a current spike will be grouped
 			if (Random.Range(0, 2) == 0 && groupedSpikesCount < 5)
 			{
-				// front intend if it's the first grouped spike
+				// left intend if it's the first grouped spike
 				if (groupedSpikesCount == 0)
-					minObjectX += spikeWidth;
+					minObjectX += spikeWidth * 2;
 
 				// increase the grouped spikes count marker
 				groupedSpikesCount++;
@@ -88,7 +90,7 @@ public class Chunk : MonoBehaviour
 					}
 				}
 				groupedSpikesCount = 0;
-				minObjectX = Random.Range(minObjectX + spikeWidth, maxObjectX); // "+ spikeWidth" for ident
+				minObjectX = Random.Range(minObjectX + spikeWidth * 2, minObjectX + maxObjectGap); // "+ spikeWidth * 2" for right ident
 			}
 
 			// if future spikes go beyond, cycle will be terminated
