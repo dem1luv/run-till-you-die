@@ -25,6 +25,15 @@ public class Player : MonoBehaviour
 			{
 				Vector2 direction = playerDirection * movingSpeed * Time.deltaTime;
 				transform.Translate(direction);
+
+				float passedMeters;
+				if (direction.x == 0)
+					passedMeters = direction.y;
+				else
+					passedMeters = direction.x;
+				passedMeters = Mathf.Abs(passedMeters);
+				passedMeters /= 4f;
+				GameManager.IncreaseMeters(passedMeters);
 			}
 			playerSprite.transform.Rotate(new Vector3(0, 0, -movingSpeed * Time.deltaTime * 100)); //idk how does it work but it does, so i won't touch it
 		}
