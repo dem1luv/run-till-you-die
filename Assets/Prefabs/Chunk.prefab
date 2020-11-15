@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityDirection: {x: 0, y: 0}
   blockObject: {fileID: 8613787009621517692}
-  spikePrefab: {fileID: 7028048114756471454, guid: 2c75e3d5ee969f5478bdb7b7da081f84,
+  spikePref: {fileID: 7028048114756471454, guid: 2c75e3d5ee969f5478bdb7b7da081f84,
     type: 3}
   thornPlatformPref: {fileID: 3235714449416457236, guid: 70cb1e2cfda222449a1c38a2b119f6d5,
     type: 3}
