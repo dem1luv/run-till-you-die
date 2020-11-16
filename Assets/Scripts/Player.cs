@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
 	[SerializeField] Animator cameraAnimator;
 	[SerializeField] SpriteRenderer playerSprite;
 
-	Vector2 playerDirection = Vector2.right;
+	Vector2 playerDir = Vector2.right;
+
 	Rigidbody2D rb;
 	bool isGrounded = true;
 
@@ -23,7 +24,7 @@ public class Player : MonoBehaviour
 		{
 			if (isGrounded)
 			{
-				Vector2 direction = playerDirection * movingSpeed * Time.deltaTime;
+				Vector2 direction = playerDir * movingSpeed * Time.deltaTime;
 				transform.Translate(direction);
 
 				float passedMeters;
@@ -39,14 +40,14 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	public void UpdateDirection(Vector2 newDirection)
+	public void UpdateDirection(Vector2 newDir)
 	{
-		playerDirection = newDirection;
-		if (newDirection.x > 0)
+		playerDir = newDir;
+		if (newDir.x > 0)
 			cameraAnimator.SetInteger("state", 0);
-		else if (newDirection.y < 0)
+		else if (newDir.y < 0)
 			cameraAnimator.SetInteger("state", 1);
-		else if (newDirection.x < 0)
+		else if (newDir.x < 0)
 			cameraAnimator.SetInteger("state", 2);
 		else
 			cameraAnimator.SetInteger("state", 3);
