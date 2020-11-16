@@ -57,15 +57,22 @@ public class Chunk : MonoBehaviour
 				// if it was some groupedSpikes, it can spawn a thorn platform with 12.5% (because there should be at least 2 grouped spikes)
 				if (Random.Range(0, 2) == 0 & groupedSpikesCount > 1)
 				{
-					// create variable for thorn platform position
-					float thornPlatformPosX = lastSpikePosX;
-					thornPlatformPosX -= (groupedSpikesCount - 1) / 2f * spikeWidth;
-					float thornPlatformPosY = Random.Range(4f, 6f);
-					Vector2 thornPlatformPos = new Vector2(thornPlatformPosX, thornPlatformPosY);
+					// Create empty GameObject as parent for thorns and platform
+					GameObject thorns = new GameObject("thorns");
+					thorns.transform.parent = transform;
 
-					GameObject thornPlatformObj = Instantiate(thornPlatformPref, Vector2.zero, Quaternion.identity, transform);
-					// set thorn platform local scale
-					thornPlatformObj.transform.localPosition = thornPlatformPos;
+					// create variable for thorn platform position
+					float thornsPosX = lastSpikePosX;
+					thornsPosX -= (groupedSpikesCount - 1) / 2f * spikeWidth;
+					float thornsPosY = 4.5f;
+					Vector2 thornsPos = new Vector2(thornsPosX, thornsPosY);
+
+					// set thorns local position
+					thorns.transform.localPosition = thornsPos;
+
+					// create thorn platform
+					GameObject thornPlatformObj = Instantiate(thornPlatformPref, thorns.transform);
+					thornPlatformObj.transform.localPosition = Vector2.zero;
 
 					// create and set thorn platform local scale
 					Vector2 thornPlatformLS = new Vector2();
@@ -74,15 +81,14 @@ public class Chunk : MonoBehaviour
 					thornPlatformObj.transform.localScale = thornPlatformLS;
 
 					// set xpos for the first thorn
-					float thornPosX = thornPlatformPos.x;
-					thornPosX -= Utils.ConvertBlockScaleToPosition(thornPlatformLS.x) / 2f;
+					float thornPosX = -Utils.ConvertBlockScaleToPosition(thornPlatformLS.x) / 2f;
 					thornPosX += thornWidth / 2f;
 					// set ypos for all thorns
-					float thornPosY = thornPlatformPos.y - 0.543f;
+					float thornPosY = -0.544f;
 
 					for(int i = 0; i < groupedSpikesCount * 4 + 8; i++) // 1 spike = 4 thorn and 8 additionals (by 4 for left and right sides)
 					{
-						GameObject thornObj = Instantiate(thornPref, Vector2.zero, Quaternion.identity, transform);
+						GameObject thornObj = Instantiate(thornPref, Vector2.zero, Quaternion.identity, thorns.transform);
 						thornObj.transform.localPosition = new Vector2(thornPosX, thornPosY);
 
 						// increase thorn xpos

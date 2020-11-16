@@ -10,7 +10,7 @@ public class Thorn : MonoBehaviour
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		parentChunk = transform.parent.parent.GetComponent<Chunk>();
+		parentChunk = transform.parent.parent.parent.GetComponent<Chunk>();
 
 		if (parentChunk.gravityDirection.x == 0)
 		{
