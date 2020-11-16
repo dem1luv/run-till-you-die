@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-	[SerializeField] Animator spikeAlarmAnimator;
+	Animator spikeAnim;
+	[SerializeField] Animator spikeAlarmAnim;
 
 	float startDelay;
 	float upDelay;
 	float downDelay;
-	
+
+	private void Start()
+	{
+		spikeAnim = GetComponent<Animator>();
+	}
+
 	public void Generate(float startDelay, float upDelay, float downDelay)
 	{
 		this.startDelay = startDelay;
@@ -33,18 +39,18 @@ public class Spike : MonoBehaviour
 		yield return new WaitForSeconds(startDelay);
 		while (true)
 		{
-			transform.Translate(new Vector2(0, -1.435f));
+			spikeAnim.SetInteger("state", 0);
 
-			yield return new WaitForSeconds(upDelay - 2f);
-			
-			spikeAlarmAnimator.SetInteger("state", 1);
+			yield return new WaitForSeconds(upDelay - 2f + 0.5f);
+
+			spikeAlarmAnim.SetInteger("state", 1);
 			yield return new WaitForSeconds(1f);
-			spikeAlarmAnimator.SetInteger("state", 0);
+			spikeAlarmAnim.SetInteger("state", 0);
 			yield return new WaitForSeconds(1f);
 
-			transform.Translate(new Vector2(0, 1.435f));
+			spikeAnim.SetInteger("state", 1);
 
-			yield return new WaitForSeconds(downDelay);
+			yield return new WaitForSeconds(downDelay - 0.5f);
 		}
 	}
 }

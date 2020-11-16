@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 7028048114756471455}
   - component: {fileID: 8987379613965438911}
   - component: {fileID: 8866668618071557318}
+  - component: {fileID: 3442259117804427025}
   m_Layer: 0
   m_Name: spike
   m_TagString: Untagged
@@ -212,7 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 911cbc1d91366fd4db2d6319ebd6de0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spikeAlarmAnimator: {fileID: 8517671487679575825}
+  spikeAnim: {fileID: 0}
+  spikeAlarmAnim: {fileID: 8517671487679575825}
 --- !u!68 &8866668618071557318
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -237,3 +239,22 @@ EdgeCollider2D:
   - {x: 0.055, y: 0.665}
   - {x: 0.078, y: 0.64}
   - {x: 0.7745, y: -0.567}
+--- !u!95 &3442259117804427025
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028048114756471454}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 67700ba9197db5e4d84f429d9b2792d3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
