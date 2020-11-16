@@ -9,6 +9,7 @@ public class Chunk : MonoBehaviour
 	public GameObject blockObject;
 	[Space]
 	[SerializeField] GameObject spikePref;
+	[SerializeField] GameObject thornsPref;
 	[SerializeField] GameObject thornPlatformPref;
 	[SerializeField] GameObject thornPref;
 
@@ -58,10 +59,9 @@ public class Chunk : MonoBehaviour
 				if (Random.Range(0, 2) == 0 & groupedSpikesCount > 1)
 				{
 					// Create empty GameObject as parent for thorns and platform
-					GameObject thorns = new GameObject("thorns");
-					thorns.transform.parent = transform;
+					GameObject thorns = Instantiate(thornsPref, transform);
 
-					// create variable for thorn platform position
+					// create variable for thorns position
 					float thornsPosX = lastSpikePosX;
 					thornsPosX -= (groupedSpikesCount - 1) / 2f * spikeWidth;
 					float thornsPosY = 4.5f;
