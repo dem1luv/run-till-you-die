@@ -54,6 +54,8 @@ MonoBehaviour:
     type: 3}
   thornPref: {fileID: 643782317139896653, guid: b1371d1d7d920444faa980b9430e76a2,
     type: 3}
+  spearPref: {fileID: 1181796772766719294, guid: b16b97af38b54364c9c24c3d8014d3d7,
+    type: 3}
 --- !u!1001 &2003536227824724531
 PrefabInstance:
   m_ObjectHideFlags: 0

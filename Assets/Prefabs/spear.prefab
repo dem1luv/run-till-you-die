@@ -129,7 +129,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1181796772766719295}
-  - component: {fileID: 1181796772766719288}
   - component: {fileID: 7390619779052329948}
   m_Layer: 0
   m_Name: spear
@@ -154,18 +153,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1181796772766719288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181796772766719294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1dd166203114a74298a817047de5513, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &7390619779052329948
 Animator:
   serializedVersion: 3
@@ -255,7 +242,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 456f76459891f064b85fd05d3c649ee5, type: 3}
   m_Color: {r: 0.28627452, g: 0.6039216, b: 0.8705883, a: 1}
   m_FlipX: 0

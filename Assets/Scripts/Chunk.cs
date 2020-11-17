@@ -12,6 +12,7 @@ public class Chunk : MonoBehaviour
 	[SerializeField] GameObject thornsPref;
 	[SerializeField] GameObject thornPlatformPref;
 	[SerializeField] GameObject thornPref;
+	[SerializeField] GameObject spearPref;
 
 
 	public void Generate()
@@ -23,7 +24,7 @@ public class Chunk : MonoBehaviour
 		spikePos.y += GetBlockHeight() / 2f + 1.34f / 2f;
 		
 		float minObjectX = transform.position.x - GetBlockLength() / 2f + GetBlockHeight() * 3f;
-		float maxObjectX = transform.position.x + GetBlockLength() / 2f - GetBlockHeight() * 2.4f;
+		float maxObjectX = transform.position.x + GetBlockLength() / 2f - GetBlockHeight() * 2.6f;
 
 		float maxObjectGap = 10f;
 
@@ -94,9 +95,31 @@ public class Chunk : MonoBehaviour
 						// increase thorn xpos
 						thornPosX += thornWidth;
 					}
+
+					// for right ident
+					minObjectX += spikeWidth * 2;
+				}
+				// 10% chance to spawn a spear
+				if (Random.Range(0, 5) == 0) {
+					// for left ident
+					minObjectX += 2.34f;
+
+					Vector2 spearPos = transform.position;
+					spearPos.x = minObjectX;
+
+					if (spearPos.x <= maxObjectX)
+					{
+						spearPos.y += 4.46f;
+
+						GameObject spearObj = Instantiate(spearPref, spearPos, Quaternion.identity, transform);
+
+						// for right ident
+						minObjectX += 2.34f;
+					}
 				}
 				groupedSpikesCount = 0;
-				minObjectX = Random.Range(minObjectX + spikeWidth * 2, minObjectX + maxObjectGap); // "+ spikeWidth * 2" for right ident
+
+				minObjectX = Random.Range(minObjectX + spikeWidth, minObjectX + maxObjectGap); // "+ spikeWidth" for right ident
 			}
 
 			// if future spikes go beyond, cycle will be terminated
