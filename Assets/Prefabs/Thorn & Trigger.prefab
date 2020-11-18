@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 3856610397017494058}
   - component: {fileID: 3856610397017494052}
   - component: {fileID: 1276361897557412717}
+  - component: {fileID: 9084309828968240601}
   - component: {fileID: 7296449890873734687}
   m_Layer: 0
   m_Name: thorn
@@ -283,6 +284,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e49581218c303c242902102ae7c6c1dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9084309828968240601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3856610397017494053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d062897025ce934e9e2113e79ba4396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!68 &7296449890873734687

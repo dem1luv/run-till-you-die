@@ -15,7 +15,6 @@ public class Spike : MonoBehaviour
 	{
 		spikeAnim = GetComponent<Animator>();
 	}
-
 	public void Generate(float startDelay, float upDelay, float downDelay)
 	{
 		this.startDelay = startDelay;
@@ -24,7 +23,6 @@ public class Spike : MonoBehaviour
 
 		StartCoroutine("Move");
 	}
-
 	public void GenerateRandom()
 	{
 		startDelay = Random.Range(1f, 3f);
@@ -33,7 +31,6 @@ public class Spike : MonoBehaviour
 
 		StartCoroutine("Move");
 	}
-
 	IEnumerator Move()
 	{
 		yield return new WaitForSeconds(startDelay);

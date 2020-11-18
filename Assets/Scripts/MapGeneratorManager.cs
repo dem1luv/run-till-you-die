@@ -15,6 +15,8 @@ public class MapGeneratorManager : MonoBehaviour
 
 	ArrayList chunks = new ArrayList();
 
+	int currentChunkId = 0;
+
 	private void Start()
 	{
 		GenerateChunk();
@@ -27,7 +29,7 @@ public class MapGeneratorManager : MonoBehaviour
 		GameObject chunkObject = Instantiate(chunkPrefab, instancePosition, Quaternion.identity);
 		Chunk chunk = chunkObject.GetComponent<Chunk>();
 
-		chunk.Generate();
+		chunk.Generate(currentChunkId);
 
 		blockHeight = chunk.GetBlockHeight();
 
@@ -174,14 +176,20 @@ public class MapGeneratorManager : MonoBehaviour
 		chunkObject.transform.position = instancePosition;
 
 		chunks.Add(chunkObject);
+
+		currentChunkId++;
 	}
 
-	public void DeleteFirstChunkInList()
+	IEnumerator DeleteFirstChunkInList()
 	{
 		if (chunks.Count > 3)
 		{
-			Destroy((GameObject)chunks[0]);
+			GameObject chunkObj = (GameObject)chunks[0];
+			Chunk chunk = chunkObj.GetComponent<Chunk>();
+			GameEvents.current.ChunkDestroy(chunk.id);
 			chunks.RemoveAt(0);
+			yield return new WaitForSeconds(1f);
+			Destroy(chunkObj);
 		}
 		GenerateChunk();
 	}

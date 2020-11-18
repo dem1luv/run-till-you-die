@@ -13,10 +13,13 @@ public class Chunk : MonoBehaviour
 	[SerializeField] GameObject thornPlatformPref;
 	[SerializeField] GameObject thornPref;
 	[SerializeField] GameObject spearPref;
+	
+	[HideInInspector] public int id;
 
-
-	public void Generate()
+	public void Generate(int id)
 	{
+		this.id = id;
+
 		blockObject.GetComponent<Block>().Generate();
 		
 		// set default spike positions (without xpos for now)

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3235714449416457238}
   - component: {fileID: 3235714449416457239}
+  - component: {fileID: -1320182809150292113}
   m_Layer: 0
   m_Name: thorn platform
   m_TagString: Untagged
@@ -81,3 +82,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-1320182809150292113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3235714449416457236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d062897025ce934e9e2113e79ba4396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
