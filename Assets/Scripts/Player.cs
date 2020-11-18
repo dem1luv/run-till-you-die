@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+	public static Player current;
+
 	[SerializeField] float movingSpeed = 4f;
 	[SerializeField] Animator cameraAnimator;
 	[SerializeField] SpriteRenderer playerSprite;
 
-	Vector2 playerDir = Vector2.right;
+	public Vector2 playerDir = Vector2.right;
 
 	Rigidbody2D rb;
-	bool isGrounded = true;
+	public bool isGrounded = true;
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		current = this;
 	}
 
 	void Update()
