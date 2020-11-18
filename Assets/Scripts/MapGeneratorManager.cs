@@ -188,9 +188,11 @@ public class MapGeneratorManager : MonoBehaviour
 			Chunk chunk = chunkObj.GetComponent<Chunk>();
 			GameEvents.current.ChunkDestroy(chunk.id);
 			chunks.RemoveAt(0);
+			GenerateChunk();
 			yield return new WaitForSeconds(1f);
 			Destroy(chunkObj);
 		}
-		GenerateChunk();
+		else
+			GenerateChunk();
 	}
 }
