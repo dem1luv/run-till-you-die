@@ -13,7 +13,7 @@ public class Test : MonoBehaviour
     }
 	private void Update()
 	{
-        if (Input.GetMouseButton(0) && Player.current.isGrounded)
+        if (Input.GetMouseButton(0) && !GameManager.IsLosed && Player.current.isGrounded)
         {
             Vector2 bgDir = Player.current.playerDir * -1f;
 

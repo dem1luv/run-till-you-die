@@ -5,10 +5,24 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] Text textMeter;
+	[SerializeField] Text textCurrentMeters;
+    [SerializeField] Text textRecordMeters;
 
-	public void UpdateTextMeter(float newMeterCount)
+	[SerializeField] GameObject panelNewRecord;
+	[SerializeField] Text textPanelRecordMeter;
+
+	public void UpdateTextsMeter(float newCurrentMeterCount, float newRecordMeterCount)
 	{
-		textMeter.text = string.Format("{0:0}m", newMeterCount);
+		textCurrentMeters.text = string.Format("current: {0:0}m", newCurrentMeterCount);
+		textRecordMeters.text = string.Format("record: {0:0}m", newRecordMeterCount);
+	}
+	public void ShowPanelNewRecord(float newRecordMeterCount)
+	{
+		textPanelRecordMeter.text = string.Format("{0:0}m", newRecordMeterCount);
+		panelNewRecord.SetActive(true);
+	}
+	public void OnClickPanelNewRecord()
+	{
+		GameManager.ReloadScene();
 	}
 }
