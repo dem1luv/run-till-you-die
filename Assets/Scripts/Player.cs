@@ -20,12 +20,16 @@ public class Player : MonoBehaviour
 
 	Rigidbody2D rb;
 	Collider2D collider;
+	AudioSource audioSource;
+
 	public bool isGrounded = true;
+	public bool playMusic = false;
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		collider = GetComponent<Collider2D>();
+		audioSource = GetComponent<AudioSource>();
 		playerSprite = playerSpriteObj.GetComponent<SpriteRenderer>();
 		current = this;
 	}
@@ -34,6 +38,7 @@ public class Player : MonoBehaviour
 	{
 		if (Input.GetMouseButton(0) && !GameManager.IsLosed)
 		{
+			playMusic = true;
 			if (isGrounded)
 			{
 				Vector2 direction = playerDir * movingSpeed * Time.deltaTime;
@@ -50,6 +55,12 @@ public class Player : MonoBehaviour
 			}
 			playerSprite.transform.Rotate(new Vector3(0, 0, -movingSpeed * Time.deltaTime * 100)); //idk how does it work but it does, so i won't touch it
 		}
+		else
+			playMusic = false;
+		if (playMusic && !audioSource.isPlaying)
+			audioSource.Play();
+		else if (!playMusic)
+			audioSource.Pause();
 	}
 	public void Die()
 	{
