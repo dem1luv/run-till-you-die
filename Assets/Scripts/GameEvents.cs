@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class GameEvents : MonoBehaviour
 {
-    public static GameEvents current;
+    private static GameEvents current;
 
 	private void Awake()
 	{
 		current = this;
 	}
-
+	public static GameEvents GetCurrent()
+	{
+		return current;
+	}
 	public event Action<int> onChunkDestroy;
 	public void ChunkDestroy(int id)
 	{

@@ -26,7 +26,7 @@ public class ChunkObject : MonoBehaviour
 
         StartCoroutine("Show");
 
-        GameEvents.current.onChunkDestroy += OnChunkDestroy;
+        GameEvents.GetCurrent().onChunkDestroy += OnChunkDestroy;
     }
     IEnumerator Show()
 	{
@@ -55,6 +55,6 @@ public class ChunkObject : MonoBehaviour
     }
     private void OnDestroy()
     {
-        GameEvents.current.onChunkDestroy -= OnChunkDestroy;
+        GameEvents.GetCurrent().onChunkDestroy -= OnChunkDestroy;
     }
 }

@@ -9,7 +9,7 @@ public class Test : MonoBehaviour
     public GameObject level3;
     void Start()
     {
-        transform.localPosition = new Vector2(-10, 6);   
+        transform.localPosition = new Vector2(-10, 6);
     }
 	private void Update()
 	{
