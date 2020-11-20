@@ -23,6 +23,6 @@ public class UIManager : MonoBehaviour
 	}
 	public void OnClickPanelNewRecord()
 	{
-		GameManager.ReloadScene();
+		GameManager.Current.ReloadScene();
 	}
 }

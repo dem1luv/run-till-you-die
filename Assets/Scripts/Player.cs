@@ -4,20 +4,29 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-	public static Player current;
+	private static Player current;
+	public static Player Current
+	{
+		get { return current; }
+	}
 
 	[SerializeField] float movingSpeed = 4f;
 	[SerializeField] Animator cameraAnimator;
-	[SerializeField] SpriteRenderer playerSprite;
+	[SerializeField] GameObject playerSpriteObj;
+	
+	SpriteRenderer playerSprite;
 
 	public Vector2 playerDir = Vector2.right;
 
 	Rigidbody2D rb;
+	Collider2D collider;
 	public bool isGrounded = true;
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		collider = GetComponent<Collider2D>();
+		playerSprite = playerSpriteObj.GetComponent<SpriteRenderer>();
 		current = this;
 	}
 
@@ -37,12 +46,17 @@ public class Player : MonoBehaviour
 					passedMeters = direction.x;
 				passedMeters = Mathf.Abs(passedMeters);
 				passedMeters /= 4f;
-				GameManager.IncreaseMeters(passedMeters);
+				GameManager.Current.IncreaseMeters(passedMeters);
 			}
 			playerSprite.transform.Rotate(new Vector3(0, 0, -movingSpeed * Time.deltaTime * 100)); //idk how does it work but it does, so i won't touch it
 		}
 	}
-
+	public void Die()
+	{
+		Destroy(rb);
+		Destroy(collider);
+		playerSpriteObj.AddComponent<Rigidbody2D>();
+	}
 	public void UpdateDirection(Vector2 newDir)
 	{
 		playerDir = newDir;
@@ -56,7 +70,6 @@ public class Player : MonoBehaviour
 			cameraAnimator.SetInteger("state", 3);
 		StartCoroutine("TempBanPlayerMoving");
 	}
-
 	IEnumerator TempBanPlayerMoving()
 	{
 		isGrounded = false;

@@ -2961,6 +2961,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 747347424}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &760577240 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2773199775648197260, guid: 67cfcbda0c3cceb4ea15440c2bc7c216,
+    type: 3}
+  m_PrefabInstance: {fileID: 9095078728982447313}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &767116762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6523,6 +6529,11 @@ PrefabInstance:
       propertyPath: isGrounded
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9095078729880438578, guid: 67cfcbda0c3cceb4ea15440c2bc7c216,
+        type: 3}
+      propertyPath: playerSpriteObj
+      value: 
+      objectReference: {fileID: 760577240}
     - target: {fileID: 9095078729880438579, guid: 67cfcbda0c3cceb4ea15440c2bc7c216,
         type: 3}
       propertyPath: m_Name
@@ -6586,7 +6597,7 @@ PrefabInstance:
     - target: {fileID: 9112285217641132584, guid: 67cfcbda0c3cceb4ea15440c2bc7c216,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67cfcbda0c3cceb4ea15440c2bc7c216, type: 3}

@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+	private static GameManager current;
+	public static GameManager Current
+	{
+		get { return current; }
+	}
+
 	static float currentMeterCount;
 	static float recordMeterCount;
 	
@@ -16,6 +22,10 @@ public class GameManager : MonoBehaviour
 
 	static UIManager uiManager;
 
+	private void Awake()
+	{
+		current = this;
+	}
 	void Start()
 	{
 		uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
@@ -28,9 +38,14 @@ public class GameManager : MonoBehaviour
 		uiManager.UpdateTextsMeter(0, recordMeterCount);
 	}
 
-	public static void LoseGame()
+	private IEnumerator LoseGame()
 	{
 		isLosed = true;
+		Player.Current.Die();
+
+		if (currentMeterCount != 0)
+			yield return new WaitForSeconds(1.5f);
+
 		if ((int)currentMeterCount > (int)recordMeterCount)
 		{
 			recordMeterCount = currentMeterCount;
@@ -42,7 +57,7 @@ public class GameManager : MonoBehaviour
 			ReloadScene();
 	}
 
-	public static void ReloadScene()
+	public void ReloadScene()
 	{
 		currentMeterCount = 0;
 
@@ -51,7 +66,7 @@ public class GameManager : MonoBehaviour
 		Physics2D.gravity = new Vector2(0, -9.81f);
 	}
 
-	public static void IncreaseMeters(float increase)
+	public void IncreaseMeters(float increase)
 	{
 		currentMeterCount += increase;
 		uiManager.UpdateTextsMeter(currentMeterCount, recordMeterCount);
