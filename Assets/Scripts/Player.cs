@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 		get { return current; }
 	}
 
+	[SerializeField] AudioSource audioHit;
+	[SerializeField] AudioSource audioCockdillac;
 	[SerializeField] float movingSpeed = 4f;
 	[SerializeField] Animator cameraAnimator;
 	[SerializeField] GameObject playerSpriteObj;
@@ -20,7 +22,6 @@ public class Player : MonoBehaviour
 
 	Rigidbody2D rb;
 	Collider2D collider;
-	AudioSource audioSource;
 
 	public bool isGrounded = true;
 	public bool playMusic = false;
@@ -29,7 +30,6 @@ public class Player : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody2D>();
 		collider = GetComponent<Collider2D>();
-		audioSource = GetComponent<AudioSource>();
 		playerSprite = playerSpriteObj.GetComponent<SpriteRenderer>();
 		current = this;
 	}
@@ -57,13 +57,14 @@ public class Player : MonoBehaviour
 		}
 		else
 			playMusic = false;
-		if (playMusic && !audioSource.isPlaying)
-			audioSource.Play();
+		if (playMusic && !audioCockdillac.isPlaying)
+			audioCockdillac.Play();
 		else if (!playMusic)
-			audioSource.Pause();
+			audioCockdillac.Pause();
 	}
 	public void Die()
 	{
+		audioHit.Play();
 		Destroy(rb);
 		Destroy(collider);
 		playerSpriteObj.AddComponent<Rigidbody2D>();
