@@ -225,6 +225,7 @@ MonoBehaviour:
   level1: {fileID: 223510927}
   level2: {fileID: 1028165311}
   level3: {fileID: 1321702866}
+  level4: {fileID: 1439257589}
 --- !u!4 &382059366
 Transform:
   m_ObjectHideFlags: 0
@@ -755,6 +756,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 9095078728982447313}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1439257589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1439257589, guid: 67cfcbda0c3cceb4ea15440c2bc7c216,
+    type: 3}
+  m_PrefabInstance: {fileID: 9095078728982447313}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1447107172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,7 +1219,7 @@ PrefabInstance:
     - target: {fileID: 9095078729880438580, guid: 67cfcbda0c3cceb4ea15440c2bc7c216,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.28
+      value: 2.2265
       objectReference: {fileID: 0}
     - target: {fileID: 9095078729880438580, guid: 67cfcbda0c3cceb4ea15440c2bc7c216,
         type: 3}

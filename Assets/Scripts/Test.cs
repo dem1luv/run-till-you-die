@@ -7,6 +7,7 @@ public class Test : MonoBehaviour
     public GameObject level1;
     public GameObject level2;
     public GameObject level3;
+    public GameObject level4;
     void Start()
     {
         transform.localPosition = new Vector2(-10, 6);
@@ -20,6 +21,7 @@ public class Test : MonoBehaviour
             level1.transform.Translate(bgDir * Time.deltaTime / 3f);
             level2.transform.Translate(bgDir * Time.deltaTime / 6f);
             level3.transform.Translate(bgDir * Time.deltaTime / 10f);
+            level4.transform.Translate(bgDir * Time.deltaTime / 15f);
         }
     }
 }
