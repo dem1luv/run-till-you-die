@@ -5,34 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-	private static GameManager current;
-	public static GameManager Current
-	{
-		get { return current; }
-	}
+	public static GameManager Current { get; private set; }
 
-	static float currentMeterCount;
-	public static float CurrentMeterCount
-	{
-		get { return currentMeterCount; }
-	}
-	static float recordMeterCount;
-	
-	static bool isLosed = false;
-	static public bool IsLosed
-	{
-		get { return isLosed; }
-	}
+	public float CurrentMeterCount { get; private set; }
+	private float recordMeterCount;
 
-	static UIManager uiManager;
+	public bool IsLosed { get; private set; } = false;
+
+	private UIManager uiManager;
 
 	private void Awake()
 	{
-		current = this;
+		Current = this;
 	}
-	void Start()
+	private void Start()
 	{
-		uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+		uiManager = UIManager.Current;
 
 		if (PlayerPrefs.HasKey("recordMeterCount"))
 			recordMeterCount = PlayerPrefs.GetFloat("recordMeterCount");
@@ -41,21 +29,20 @@ public class GameManager : MonoBehaviour
 
 		uiManager.UpdateTextsMeter(0, recordMeterCount);
 	}
-
 	private IEnumerator LoseGame()
 	{
-		isLosed = true;
+		IsLosed = true;
 		Player.Current.Die();
 
-		if (currentMeterCount != 0)
+		if (CurrentMeterCount != 0)
 		{
 			PlayerPrefs.SetFloat("audioCockdillac.time", Player.Current.audioCockdillac.time);
 			yield return new WaitForSeconds(1.5f);
 		}
 
-		if ((int)currentMeterCount > (int)recordMeterCount)
+		if ((int)CurrentMeterCount > (int)recordMeterCount)
 		{
-			recordMeterCount = currentMeterCount;
+			recordMeterCount = CurrentMeterCount;
 			PlayerPrefs.SetFloat("recordMeterCount", recordMeterCount);
 
 			uiManager.ShowPanelNewRecord(recordMeterCount);
@@ -63,22 +50,19 @@ public class GameManager : MonoBehaviour
 		else
 			ReloadScene();
 	}
-
 	public void ReloadScene()
 	{
-		currentMeterCount = 0;
+		CurrentMeterCount = 0;
 
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-		isLosed = false;
+		IsLosed = false;
 		Physics2D.gravity = new Vector2(0, -9.81f);
 	}
-
 	public void IncreaseMeters(float increase)
 	{
-		currentMeterCount += increase;
-		uiManager.UpdateTextsMeter(currentMeterCount, recordMeterCount);
+		CurrentMeterCount += increase;
+		uiManager.UpdateTextsMeter(CurrentMeterCount, recordMeterCount);
 	}
-
 	private void OnApplicationQuit()
 	{
 		PlayerPrefs.DeleteKey("audioCockdillac.time");

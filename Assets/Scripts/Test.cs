@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    public GameObject level1;
-    public GameObject level2;
-    public GameObject level3;
-    public GameObject level4;
+    [SerializeField] GameObject level1;
+    [SerializeField] GameObject level2;
+    [SerializeField] GameObject level3;
+    [SerializeField] GameObject level4;
     void Start()
     {
         transform.localPosition = new Vector2(-10, 6);
     }
 	private void Update()
 	{
-        if (Input.GetMouseButton(0) && !GameManager.IsLosed && Player.Current.isGrounded)
+        if (Input.GetMouseButton(0) && !GameManager.Current.IsLosed && Player.Current.IsGrounded)
         {
             Vector2 bgDir = Player.Current.playerDir * -1f;
 

@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 	Rigidbody2D rb;
 	Collider2D collider;
 
-	public bool isGrounded = true;
+	public bool IsGrounded { get; private set; } = true;
 	public bool playMusic = false;
 
 	void Start()
@@ -39,10 +39,10 @@ public class Player : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetMouseButton(0) && !GameManager.IsLosed)
+		if (Input.GetMouseButton(0) && !GameManager.Current.IsLosed)
 		{
 			playMusic = true;
-			if (isGrounded)
+			if (IsGrounded)
 			{
 				Vector2 direction = playerDir * movingSpeed * Time.deltaTime;
 				transform.Translate(direction);
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
 	}
 	public void Die()
 	{
-		if (GameManager.CurrentMeterCount != 0)
+		if (GameManager.Current.CurrentMeterCount != 0)
 			audioHit.Play();
 		Destroy(rb);
 		Destroy(collider);
@@ -88,10 +88,10 @@ public class Player : MonoBehaviour
 	}
 	IEnumerator TempBanPlayerMoving()
 	{
-		isGrounded = false;
+		IsGrounded = false;
 		rb.velocity = Physics2D.gravity / 9.81f * 3;
 		yield return new WaitForSeconds(0.3481927f);
 		rb.velocity = Vector2.zero;
-		isGrounded = true;
+		IsGrounded = true;
 	}
 }
