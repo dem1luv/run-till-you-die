@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 	}
 
 	[SerializeField] AudioSource audioHit;
-	[SerializeField] AudioSource audioCockdillac;
+	public AudioSource audioCockdillac;
 	[SerializeField] float movingSpeed = 4f;
 	[SerializeField] Animator cameraAnimator;
 	[SerializeField] GameObject playerSpriteObj;
@@ -32,6 +32,9 @@ public class Player : MonoBehaviour
 		collider = GetComponent<Collider2D>();
 		playerSprite = playerSpriteObj.GetComponent<SpriteRenderer>();
 		current = this;
+
+		if (PlayerPrefs.HasKey("audioCockdillac.time"))
+			audioCockdillac.time = PlayerPrefs.GetFloat("audioCockdillac.time");
 	}
 
 	void Update()

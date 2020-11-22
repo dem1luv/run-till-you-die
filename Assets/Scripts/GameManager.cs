@@ -48,7 +48,10 @@ public class GameManager : MonoBehaviour
 		Player.Current.Die();
 
 		if (currentMeterCount != 0)
+		{
+			PlayerPrefs.SetFloat("audioCockdillac.time", Player.Current.audioCockdillac.time);
 			yield return new WaitForSeconds(1.5f);
+		}
 
 		if ((int)currentMeterCount > (int)recordMeterCount)
 		{
@@ -74,5 +77,10 @@ public class GameManager : MonoBehaviour
 	{
 		currentMeterCount += increase;
 		uiManager.UpdateTextsMeter(currentMeterCount, recordMeterCount);
+	}
+
+	private void OnApplicationQuit()
+	{
+		PlayerPrefs.DeleteKey("audioCockdillac.time");
 	}
 }
