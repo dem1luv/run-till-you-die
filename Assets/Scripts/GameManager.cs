@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
 	}
 
 	static float currentMeterCount;
+	public static float CurrentMeterCount
+	{
+		get { return currentMeterCount; }
+	}
 	static float recordMeterCount;
 	
 	static bool isLosed = false;

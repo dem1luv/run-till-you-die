@@ -64,7 +64,8 @@ public class Player : MonoBehaviour
 	}
 	public void Die()
 	{
-		audioHit.Play();
+		if (GameManager.CurrentMeterCount != 0)
+			audioHit.Play();
 		Destroy(rb);
 		Destroy(collider);
 		playerSpriteObj.AddComponent<Rigidbody2D>();
